@@ -1,8 +1,8 @@
-import MyComponent from "./MyComponent";
+import EventPractice from './EventPractice';
 
 function App() {
   return (
-    <MyComponent/>
+    <EventPractice/>
   );
 }
 
