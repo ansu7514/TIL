@@ -9,7 +9,7 @@ const EventPractice = () => {
 
     const onChange = (e)=> {
         const newForm = {
-            ...form,
+            ...form,    // 기존의 form을 이 자리에 복사
             [e.target.name]: e.target.value
         };
 
@@ -22,6 +22,12 @@ const EventPractice = () => {
             username: '',
             message: ''
         })
+    }
+
+    // 엔터 시 onClick 함수 시ㅏㄹ행
+    const onKeyPress = (e) => {
+        if(e.key === 'Enter')
+            onClick();
     }
 
     return (
@@ -41,6 +47,7 @@ const EventPractice = () => {
                 // input 값 관리해야 할 때는 value 필수!
                 value={message}
                 onChange={onChange}
+                onKeyPress={onKeyPress}
             />
             <button onClick={onClick}>확인</button>
         </div>
