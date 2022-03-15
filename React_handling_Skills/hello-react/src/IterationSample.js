@@ -29,10 +29,12 @@ const IterationSample = () => {
         const { names } = state;
 
         setState({
-            names: [
-                ...names.slice(0, index),
-                ...names.slice(index + 1, names.length)
-            ]
+            // 요약
+            // names: [
+            //     ...names.slice(0, index),
+            //     ...names.slice(index + 1, names.length)
+            // ]
+            names: names.filter((item, i) => i !== index)
         });
     };
 
