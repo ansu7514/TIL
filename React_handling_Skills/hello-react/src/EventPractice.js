@@ -1,20 +1,39 @@
 import React, { useState } from "react";
 
 const EventPractice = () => {
-    const [message, setState] = useState('');
+    const [form, setForm] = useState({
+        username: '',
+        message: ''
+    });
+    const {username, message} = form;
 
     const onChange = (e)=> {
-        setState(e.target.value);
+        const newForm = {
+            ...form,
+            [e.target.name]: e.target.value
+        };
+
+        setForm(newForm);
     }
 
     const onClick = () => {
-        alert(message);
-        setState('');
+        alert(username + " : " + message);
+        setForm({
+            username: '',
+            message: ''
+        })
     }
 
     return (
         <div>
             <h1>이벤트 연습</h1>
+            <input
+                type="text"
+                name="username"
+                placeholder="유저명"
+                value={username}
+                onChange={onChange}
+            />
             <input
                 type="text"
                 name="message"
