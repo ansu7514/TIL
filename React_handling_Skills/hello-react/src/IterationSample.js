@@ -1,13 +1,45 @@
+import { useState } from 'react';
+
 const IterationSample = () => {
-    const names = ['눈사람', '얼음', '눈', '바람'];
+    const [state, setState] = useState({
+        names: ['눈사람', '얼음', '눈', '바람'],
+        name: ''
+    });
+    const {names, name} = state;
+
+    const onChange = (e) => {
+        // state 안 값이 2개 이상이면
+        // newForm 생성해야함
+        const newFrom = {
+            ...state,
+            name: e.target.value
+        };
+
+        setState(newFrom);
+    }
+
+    const insert = () => {
+        setState({
+            names: names.concat(name),
+            name: ''
+        });
+    }
+
     const nameList = names.map(
-        (name, index) => (<li key={index}>{name}</li>)
+        (name, index) => <li key={index}>{name}</li>
     );
 
     return (
-        <ul>
-            {nameList}
-        </ul>
+        <div>
+            <input
+                onChange={onChange}
+                value={state.name}
+            />
+            <button onClick={insert}>추가</button>
+            <ul>
+                {nameList}
+            </ul>
+        </div>
     )
 }
 
