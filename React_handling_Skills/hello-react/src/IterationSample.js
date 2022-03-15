@@ -16,17 +16,35 @@ const IterationSample = () => {
         };
 
         setState(newFrom);
-    }
+    };
 
     const insert = () => {
         setState({
             names: names.concat(name),
             name: ''
         });
-    }
+    };
+
+    const remove = (index) => {
+        const { names } = state;
+
+        setState({
+            names: [
+                ...names.slice(0, index),
+                ...names.slice(index + 1, names.length)
+            ]
+        });
+    };
 
     const nameList = names.map(
-        (name, index) => <li key={index}>{name}</li>
+        (name, index) => (
+            <li 
+                key={index}
+                onDoubleClick={() => {
+                    remove(index)
+                }}
+            >{name}</li>
+        )
     );
 
     return (
