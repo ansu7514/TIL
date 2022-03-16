@@ -7,7 +7,7 @@ const TodoList = ({ todos }) => {
                 key={todo.id}
                 done={todo.done}
             >
-                {todo.text} 
+                {todo.text}
             </TodoItem>
         )
     )
