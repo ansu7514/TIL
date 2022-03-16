@@ -1,4 +1,4 @@
-import styles from '../styles/TodoInput.scss';
+import styles from '../styles/TodoInput.css';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
@@ -18,4 +18,4 @@ const TodoInput = ({ value, onChange, onInsert }) => {
     );
 };
 
-export default TodoInput;
+export { TodoInput };

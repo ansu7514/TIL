@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { PageTemplate } from './PageTemplate';
+import { TodoInput } from './TodoInput';
 
 const App = () => {
     return (
         <PageTemplate>
-            안녕하세요
+            <TodoInput/>
         </PageTemplate>
     );
 }
