@@ -9,16 +9,10 @@ const App = (e) => {
         // 일정 데이터 초기값
         todos: [
             { id: 0, text: '리액트 공부하기', done: true },
-            { id: 1, text: '컴포넌트 스타일링 해보기', done: false },
-
+            { id: 1, text: '컴포넌트 스타일링 해보기', done: false }
         ]
     });
-
-    // 일정 데이터 안에 들어가는 id 값
-    let id = 1;
-    const getId = () => {
-        return ++id;
-    }
+    const { input, todos } = state;
 
     const handleChange = (e) => {
         const { value } = e.target;
@@ -35,7 +29,7 @@ const App = (e) => {
         const newTodo = {
             text: input,
             done: false,
-            id: this.getId()
+            id: ++todos.id
         };
 
         // 배열 안에 새 데이터 insert
@@ -44,8 +38,6 @@ const App = (e) => {
             input: ''
         });
     }
-
-    const { input, todos } = state;
 
     return (
         <PageTemplate>

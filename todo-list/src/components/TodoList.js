@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { TodoItem } from "./TodoItem";
 
 const TodoList = ({ todos }) => {
     const todoList = todos.map(
-        todo => (
+        (todo) => (
             <TodoItem
                 key={todo.id}
                 done={todo.done}
@@ -10,7 +11,7 @@ const TodoList = ({ todos }) => {
                 {todo.text}
             </TodoItem>
         )
-    )
+    );
 
     return (
         <div>
