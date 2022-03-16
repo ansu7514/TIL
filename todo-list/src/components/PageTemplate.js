@@ -1,4 +1,4 @@
-import styles from '../styles/PageTemplate.css';
+import styles from '../styles/PageTemplate.scss';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
