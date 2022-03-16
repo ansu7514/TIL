@@ -1,13 +1,13 @@
-import styles from './PageTemplate.css';
-import className from 'classnames/bind';
+import styles from '../styles/PageTemplate.css';
+import classNames from 'classnames/bind';
 
-const cx = className.bind(styles);
+const cx = classNames.bind(styles);
 
 const PageTemplate = ({children}) => {
     return (
-        <div className={'page-template'}>
+        <div className={cx('page-template')}>
             <h1>일정 관리</h1>
-            <div>
+            <div className={cx('content')}>
                 {children}
             </div>
         </div>
