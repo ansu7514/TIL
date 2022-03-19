@@ -17,9 +17,10 @@ const App = (e) => {
     const handleChange = (e) => {
         const { value } = e.target;
         setState({
-            input: value
+            input: value,
+            todos: [...todos]
         });
-    }
+    };
 
     // 새 데이터 추가
     const handleInsert = () => {
