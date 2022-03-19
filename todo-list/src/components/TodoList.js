@@ -1,12 +1,12 @@
-import { useState } from "react";
 import { TodoItem } from "./TodoItem";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onToggle }) => {
     const todoList = todos.map(
         (todo) => (
             <TodoItem
                 key={todo.id}
                 done={todo.done}
+                onToggle={() => onToggle(todo.id)}
             >
                 {todo.text}
             </TodoItem>

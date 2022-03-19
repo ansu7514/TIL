@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { PageTemplate } from './PageTemplate';
 import { TodoInput } from './TodoInput';
 import { TodoList } from './TodoList';
@@ -14,6 +14,7 @@ const App = (e) => {
     });
     const { input, todos } = state;
 
+    // input 데이터 받기
     const handleChange = (e) => {
         const { value } = e.target;
         setState({
@@ -35,15 +36,37 @@ const App = (e) => {
 
         // 배열 안에 새 데이터 insert
         setState({
-            todos: [...todos, newTodo],
-            input: ''
+            input: '',
+            todos: [...todos, newTodo]
         });
     }
+
+    const handleToggle = (id) => {
+        // id로 배열의 인덱스 find
+        const { todos } = state;
+        const index = todos.findIndex(todo => todo.id === id);
+
+        // 찾은 데이터의 done 값을 반전
+        const toggled = {
+            ...todos[index],
+            done: !todos[index].done
+        };
+
+        // 데이터 수정
+        setState({
+            input: '',
+            todos: [
+                ...todos.slice(0, index),
+                toggled,
+                ...todos.slice(index + 1, todos.length)
+            ]
+        });
+    };
 
     return (
         <PageTemplate>
             <TodoInput onChange={handleChange} onInsert={handleInsert} value={input} />
-            <TodoList todos={todos} />
+            <TodoList todos={todos} onToggle={handleToggle} />
         </PageTemplate>
     );
 }
