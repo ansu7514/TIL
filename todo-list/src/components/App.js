@@ -41,6 +41,7 @@ const App = (e) => {
         });
     }
 
+    // check box 이벤트
     const handleToggle = (id) => {
         // id로 배열의 인덱스 find
         const { todos } = state;
@@ -63,10 +64,25 @@ const App = (e) => {
         });
     };
 
+    // todo 제거 이벤트
+    const handleRemove = (id) => {
+        const { todos } = state;
+        const index = todos.findIndex(todo => todo.id === id);
+
+        // 선택한 todo 제거
+        setState({
+            input: '',
+            todo: [
+                ...todos.slice(0, index),
+                ...todos.slice(index + 1, todos.length)
+            ]
+        });
+    }
+
     return (
         <PageTemplate>
             <TodoInput onChange={handleChange} onInsert={handleInsert} value={input} />
-            <TodoList todos={todos} onToggle={handleToggle} />
+            <TodoList todos={todos} onToggle={handleToggle} onRemove={handleRemove} />
         </PageTemplate>
     );
 }
