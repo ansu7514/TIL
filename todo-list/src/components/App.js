@@ -72,7 +72,7 @@ const App = (e) => {
         // 선택한 todo 제거
         setState({
             input: '',
-            todo: [
+            todos: [
                 ...todos.slice(0, index),
                 ...todos.slice(index + 1, todos.length)
             ]
