@@ -1,9 +1,9 @@
-import { IterationSample } from "./IterationSample";
+import Counter from "./Counter";
 
 function App() {
   return (
-    <IterationSample/>
+    <Counter/>
   );
-}
+};
 
 export default App;
