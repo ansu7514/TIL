@@ -7,7 +7,11 @@ const Box = styled.div`
     display: flex;
 `;
 
-const Button = styled.div`
+/*
+    단순 변수 형태가 아니라 여러 줄의 스타일 구문을 조건부로 설정해야 하는 경우에는
+    css를 불러와야 한다
+*/
+const Button = styled.button`
     background: white;
     color: black;
     border-radius: 4px;
