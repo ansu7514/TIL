@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const NewsItemBlock = styled.div`
     display: flex;
@@ -48,6 +48,7 @@ const NewsItem = ({ article }) => {
                         {title}
                     </a>
                 </h2>
+                <p>{description}</p>
             </div>
         </NewsItemBlock>
     );
