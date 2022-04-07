@@ -23,7 +23,7 @@ const sampleArticle = {
     urlToImage: 'https://via.placeholder.com/160',
 };
 
-const NewsList = () => {
+const NewsList = ({ category }) => {
     const [articles, setArticles] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -32,7 +32,8 @@ const NewsList = () => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await axios.get('https://newsapi.org/v2/top-headlines?country=kr&apiKey=a4555d33885a4edebc443be06fc8dbbc',);
+                const query = category === 'all' ? '' : `&category=${category}`;
+                const response = await axios.get(`https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=a4555d33885a4edebc443be06fc8dbbc`,);
                 setArticles(response.data.articles);
             } catch (error) {
                 console.log(error);
@@ -40,7 +41,7 @@ const NewsList = () => {
             setLoading(false);
         };
         fetchData();
-    }, []);
+    }, [category]);
 
     // 대기 중일 때
     if (loading) {
