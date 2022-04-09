@@ -950,6 +950,23 @@ function reducer() {
 }
 
 var store = createStore(reducer);
+
+var render = function render() {
+  var state = store.getState(); // 현재 상태를 불러온다.
+  // 토글 처리
+
+  if (state.toggle) {
+    divToggle.classList.add('active');
+  } else {
+    divToggle.classList.remove('active');
+  } // 카운터 처리
+
+
+  counter.innerText = state.counter;
+};
+
+render();
+store.subscribe(render);
 },{"redux":"node_modules/redux/es/redux.js"}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -978,7 +995,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65525" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49710" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
