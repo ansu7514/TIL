@@ -1,3 +1,5 @@
+import { startLoading, finishLoading } from '../modules/loading';
+
 export default function createRequestThunk(type, request) {
     // 성공 및 실패 액션 타입을 정의
     const SUCCESS = `${type}_SUCCESS`;
@@ -10,12 +12,14 @@ export default function createRequestThunk(type, request) {
                 type: SUCCESS,
                 payload: response.data
             }); // 성공
+            dispatch(finishLoading(type));
         } catch (error) {
             dispatch({
                 type: FAILURE,
                 payload: error,
                 error: true
             }); // 에러 발생
+            dispatch(startLoading(type));
             throw error;
         }
     };

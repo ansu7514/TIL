@@ -7,7 +7,7 @@ const Sample = ({ loadingPost, loadingUsers, post, users }) => {
                 {!loadingPost && post && (
                     <div>
                         <h3>{post.title}</h3>
-                        <h3>{post.tbodys}</h3>
+                        <h3>{post.body}</h3>
                     </div>
                 )}
             </section>
@@ -19,7 +19,7 @@ const Sample = ({ loadingPost, loadingUsers, post, users }) => {
                     <ul>
                         {users.map(user => (
                             <li key={user.id}>
-                                {user.username}({user.email})
+                                {user.username} ({user.email})
                             </li>
                         ))}
                     </ul>
