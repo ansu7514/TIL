@@ -74,4 +74,24 @@ module.exports = {
 
 
 
+module.exports = {
+  dotenv: resolveApp('.env'),
+  addPath: resolveApp('.'),
+  appBuild: resolveApp('build'),
+  appPublic: resolveApp('public'),
+  appHtml: resolveApp('public/index.html'),
+  appIndexJs: resolveModule(resolveApp, 'src/index'),
+  addPackageJson: resolveApp('package.json'),
+  appSrc: resolveApp('src'),
+  appTsConfig: resolveApp('tsconfig.json'),
+  yarnLockFile: resolveApp('yarn.lock'),
+  testSetup: resolveModule(resolveApp, 'src/setupTests'),
+  proxySetup: resolveApp('src/setupProxy.js'),
+  appNodeModules: resolveApp('node_modules'),
+  swSrc: resolveModule(resolveApp, 'src/service-worker'),
+  ssrIndexJs: resolveApp('src/index.sever.js'), // 서버 사이드 렌더링 엔트리
+  ssrBuild: resolveApp('dist'),  // 웹팩 처리 후 저장 경로
+  publicUrlOrPath,
+};
+
 module.exports.moduleFileExtensions = moduleFileExtensions;
