@@ -15,7 +15,14 @@ export const write = async ctx => {
     }
 };
 
-export const list = ctx => {};
+export const list = async ctx => {
+    try {
+        const posts = await Post.find().exec();
+        ctx.body = posts;
+    } catch (e) {
+        ctx.throw(500, e);
+    }
+};
 
 export const read = ctx => {};
 
