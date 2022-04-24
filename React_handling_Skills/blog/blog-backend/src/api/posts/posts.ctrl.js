@@ -80,13 +80,20 @@ export const list = async ctx => {
         return;
     }
 
+    const { tag, username } = ctx.query;
+    // tag, username 값이 유효하면 객체 안에 넣고, 그렇지 않으면 넣지 않음
+    const query = {
+        ...(username ? { 'user.username': username } : {}),
+        ...(tag ? { tags: tag } : {}),
+    };
+
     try {
         const posts = await Post.find()
             .sort({ _id: -1 })
             .limit(10)
             .skip((page - 1) * 10)
             .exec();
-        const postCount = await Post.countDocuments().exec();
+        const postCount = await Post.countDocuments(query).exec();
         ctx.set('Last-Page', Math.ceil(postCount / 10));
         ctx.body = posts.map(post => ({
                 ...post,
