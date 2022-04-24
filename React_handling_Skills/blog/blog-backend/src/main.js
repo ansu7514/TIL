@@ -13,7 +13,6 @@ mongoose
 .connect(MONGO_URI)
     .then(() => {
         console.log('Connected to MongoDB');
-        createFakeData();
     })
     .catch((error) => {
         console.error(error);
