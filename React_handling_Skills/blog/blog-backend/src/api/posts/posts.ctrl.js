@@ -18,9 +18,8 @@ export const write = async ctx => {
     const schema = Joi.object().keys({
         // 객체가 다음 필드를 가지고 있음을 검증
         title: Joi.string().required(), // required()가 있으면 필수 항목
-        body: Joi.array()
-            .item(Joi.string())
-            .required(),    // 문자열로 이루어진 배열
+        body: Joi.string().required(),
+        tags: Joi.array().items(Joi.string()).required(),    // 문자열로 이루어진 배열
     });
 
     // 검증하고 나서 검증 실패인 경우 에러 처리
@@ -35,7 +34,8 @@ export const write = async ctx => {
     const post = new Post({
         title,
         body,
-        tags
+        tags,
+        user: ctx.state.user,
     });
     try {
         await post.save();
