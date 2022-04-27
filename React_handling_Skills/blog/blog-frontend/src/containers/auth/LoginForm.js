@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthForm from '../../components/auth/AuthForm';
 import { changeField, initializeForm, login } from '../../modules/auth';
 import { check } from '../../modules/user';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+const LoginForm = ({ history }) => {
+    const [error, setError] = useState(null);
+
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
         form: auth.login,
         auth: auth.auth,
-        authEror: auth.authError,
-        user: user.user
+        authError: auth.authError,
+        user: user.user,
     }));
 
     // 인풋 변경 이벤트 핸들러
@@ -44,11 +46,11 @@ const LoginForm = () => {
         if (authError) {
             console.log('오류 발생');
             console.log(authError);
+            setError('로그인 실패');
             return;
         }
         if (auth) {
-            console.log('회원가입 성공');
-            console.log(auth);
+            console.log('로그인 성공');
             dispatch(check());
         }
     }, [auth, authError, dispatch]);
@@ -60,7 +62,7 @@ const LoginForm = () => {
     }, [navigate, user]);
 
     return (
-        <AuthForm type='login' form={form} onChange={onChange} onSubmit={onSubmit} />
+        <AuthForm type='login' form={form} onChange={onChange} onSubmit={onSubmit} error={error} />
     );
 };
 
