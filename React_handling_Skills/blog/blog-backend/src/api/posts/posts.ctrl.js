@@ -106,7 +106,7 @@ export const list = async ctx => {
 };
 
 export const read = async ctx => {
-    ctx.bbody = ctx.state.post;
+    ctx.body = ctx.state.post;
 };
 
 export const remove = async ctx => {
