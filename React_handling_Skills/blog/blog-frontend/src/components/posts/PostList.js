@@ -1,7 +1,10 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import Responsive from '../common/Responsive';
 import Button from '../common/Button';
 import palette from '../../lib/styles/palette';
+import SubInfo from '../common/SubInfo';
+import Tags from '../common/Tags';
 
 const PostLintBlock = styled(Responsive)`
    margin-top: 3rem;
@@ -37,56 +40,45 @@ const PostItemBlock = styled.div`
     }
 `;
 
-const SubInfo = styled.div`
-    /* marign-top: 1rem; */
-    color: ${palette.gray[6]};
-
-    /* span 사이에 가운뎃점 문자 보여 주기 */
-    span + span:before {
-        color: ${palette.gray[4]};
-        padding-left: 0.25rem;
-        padding-right: 0.25rem;
-        content: '\\B7';    /* 가운뎃점 문자 */
-    }
-`;
-
-const Tags = styled.div`
-    margin-top: 0.5rem;
-    .tag {
-        display: inline-block;
-        color: ${palette.cyan[7]};
-        text-decoration: none;
-        margin-right: 0.5rem;
-        &:hover {
-            color: ${palette.cyan[6]};
-        }
-    }
-`;
-
-const PostItem = () => {
+const PostItem = ({ post }) => {
+    const { publishedDate, user, tags, title, body, _id } = post;
     return (
         <PostItemBlock>
-            <h2>제목</h2>
-            <SubInfo username='username' publishedDate={new Date()}/>
-            <Tags tags={['태그1', '태그2', '태그3']} />
-            <p>포스트 내용의 일부분..</p>
+            <h2>
+                <Link to={`/@${user.username}/${_id}`}>{title}</Link>
+            </h2>
+            <SubInfo
+                username={user.username}
+                publishedDate={new Date(publishedDate)}
+            />
+            <Tags tags={tags} />
+            <p>{body}</p>
         </PostItemBlock>
     );
 };
 
-const PostList = () => {
+const PostList = ({ posts, loading, error, showWriteButton }) => {
+    // 에러 발생 시
+    if (error) {
+        return <PostLintBlock>에러가 발생했습니다.</PostLintBlock>
+    }
     return (
         <PostLintBlock>
             <WritePostButtonWrapper>
-                <Button cyan to='/write'>
+                {showWriteButton && (
+                    <Button cyan to='/write'>
                     새 글 작성하기
                 </Button>
+            )}
             </WritePostButtonWrapper>
-            <div>
-                <PostItem />
-                <PostItem />
-                <PostItem />
-            </div>
+            {/* 로딩 중이 아니고, 포스트 배열이 존재할 때만 보여 줌 */}
+            {!loading && posts && (
+                <div>
+                    {posts.map(post => (
+                        <PostItem post={post} />
+                    ))}
+                </div>
+            )}
         </PostLintBlock>
     );
 };
