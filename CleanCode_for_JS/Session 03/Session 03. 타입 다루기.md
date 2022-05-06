@@ -132,7 +132,7 @@ REFERENCE는 결국 object의 prototype을 타기 때문에 위처럼 사용할 
 
 ## 4. 형변환 주의하기
 ```javascript
-  '1' == 1               // true
+  '1' == 1                // true
   
   11 + ' 문자와 결합'     // '11 문자와 결합'
   !!'문자열'              // true
@@ -140,3 +140,19 @@ REFERENCE는 결국 object의 prototype을 타기 때문에 위처럼 사용할 
 ```
 느슨한 검사라고 생각하지만 암묵적으로는 <b>형 변환</b>이 발생하고 있는 것이다.<br>
 따라서 명시적으로 형변환하는 것이 좋은 방법이다.<br>
+<br>
+
+## 5. isNaN
+사람(10진수)와 컴퓨터(2진수) 간의 간극을 javascript는 IEEE 754로 해결하려고 하고 있다.<br>
+IEEE는 <b>부동소수점</b>을 사용해서 해당 문제를 해결하려고 한다.<br>
+```javascript
+  typeof 123 !== 'number'       // false
+  isNaN(123)                    // false (숫자가 숫자가 아니다. 즉, 숫자이다.)
+  
+  isNaN(123 + '테스트')         // true
+  Number.isNaN(123 + '테스트')  // false
+```
+> isNaN(is Not A Number) ⇒ 숫자가 아니다.<br>
+
+`isNaN`은 느슨한 검사를 하는 것이고 `Number.isNaN`은 엄격한 검사를 하는 것이다.
+#### 따라서 `Number.isNaN` 사용하는 것이 훨씬 더 좋은 방법!!
