@@ -173,3 +173,45 @@ JSX 내부에서 if문은 사용할 수 없지만, <b>삼항연산자</b>는 값
 위와 같은 함수의 경우 20세 이하에게는 '안녕하세요' 값을 반환할 수 없다는 문제점을 가진다.<br>
 이런 경우에도 `else문`을 제거하여 return 값을 반환 시킬 수 있다.<br>
 <br>
+
+## 7. Early Retrun
+```javascript
+  function loginService(isLogin, user) {
+    if (!isLogin) {
+      if (checkToken()) {
+        if (!user.nickName) {
+          return registerUser(user);
+        } else {
+          refreshToken();
+          
+          return '로그인 성공';
+        } else {
+          throw new Error('No Token');
+        };
+      };
+    };
+  };
+```
+```javascript
+  // Early return
+  function loginService(isLogin, user) {
+    if (!isLogin) {
+      return
+    };
+
+    if (!checkToken()) {
+      throw new Error('No Token');
+    };
+    
+    if (!user.nickName) {
+      throw new Error('No Token');
+    };
+    
+    refreshToken();
+    
+    return '로그인 성공';
+  };
+```
+Early return을 사용함으로써 함수를 미리 종료하고 사고하기 편하다는 장점을 가진다.<br>
+사실 로직적으로는 큰 변화를 가지지는 않으며 어느 부분을 실행 중인지 명확하게 확인할 수 있다.<br>
+<br>
