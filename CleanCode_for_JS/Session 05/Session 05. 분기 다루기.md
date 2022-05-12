@@ -83,3 +83,93 @@ JSX 내부에서 if문은 사용할 수 없지만, <b>삼항연산자</b>는 값
   }
 ```
 <br>
+
+## 4. 단축평가
+```javascript
+  // AND
+  true && true && '도달 O';     // '도달 O'
+  true && false && '도달 X';    // false
+  
+  // OR
+  false || false || '도달 O';   // '도달 O'
+  true || true || '도달 X';     // true
+```
+논리연산자, 삼항연산자 등을 활용하여 평가로 사용하고 있다.<br>
+```javascript
+  const getActiveUser1(user, isLogin) {
+    if (isLogin) {
+      if (user) {
+        if (user.name) {
+          return user.name
+        } else {
+          return '이름없음'
+        }
+      }
+    }
+  };
+  
+  const getActiveUser2(user, isLogin) {
+    if (isLogin && user) {
+      return user.name || '이름없음';
+    }
+  };
+```
+`getActiveUser1` 코드를 `getActiveUser1` 코드처럼 줄여서 사용할 수 있다.<br>
+가장 먼저 체크해야하는 변수를 앞에 놓아서 불필요한 평가를 줄일 수 있다.<br>
+<br>
+
+## 5. else if 피하기
+```javascript
+  const x = 1;
+  
+  if (x >= 0) {
+    console.log('x는 0과 같거나 크다.');
+  } else if (x > 0) {
+    console.log('x는 0보다 크다.');
+  } else {
+    console.log('Else');
+  }
+  // x는 0과 같거나 크다. 
+```
+위와 같은 코드에서 `else if문`을 제거하면 다음과 같은 동일한 코드를 얻을 수 있다.<br>
+```javascript
+  const x = 1;
+  
+  if (x >= 0) {
+    console.log('x는 0과 같거나 크다.');
+  } else {
+    if (x > 0) {
+      console.log('x는 0보다 크다.');
+    }
+  }
+  // x는 0과 같거나 크다.
+```
+`else if문`의 사용을 줄이는 것이 가독성에도 좋고, 조건을 파악하기도 쉽다.<br>
+따라서, 사용을 지향하고 만약 사용할 일이 있다면 `switch문`을 사용하는 것이 좋다.<br>
+<br>
+
+## 6. else 피하기
+```javascript
+  function getActiveUserName(user) {
+    if (user.name) {
+      return user.name;
+    }
+    return '이름없음';
+  }
+```
+`if`와 `else`를 동시에 사용하게 될 경우 단순성 뿐만 아니라 반전된 기능을 주는 함수처럼 사용하게 된다.<br>
+즉, 참일 때 반환과 거짓일 때 반환이 명백히 정해진 함수가 되기 때문이다.<br>
+이럴 경우 2가지 이상의 기능을 가진 경우에 문제가 발생할 수 있다.<br>
+```javascript
+  // 성인이 아닌 경우도 return 값을 받아야 한다.
+  function getHelloCustmer() {
+    if (user.age < 20) {
+      report(user);
+    } else {
+      return '안녕하세요';
+    }
+  };
+```
+위와 같은 함수의 경우 20세 이하에게는 '안녕하세요' 값을 반환할 수 없다는 문제점을 가진다.<br>
+이런 경우에도 `else문`을 제거하여 return 값을 반환 시킬 수 있다.<br>
+<br>
