@@ -257,3 +257,61 @@ x나 y의 값이 빈 값일 경우를 대비하여 default value 값을 설정�
 연산자 우선 순위를 암기해서 사용하기 보다는 시각적으로 판단하기 쉽게 <b>( 괄호 )</b>를 사용하는 것이 효과적이다.<br>
 증감연산자를 사용하기 보다는 <b>명시적으로 작성하는 습관</b>을 가지는 것이 좋다.<br>
 <br>
+
+## 11. Nullish coalescing operator
+> ⚠ 해당 문법은 비교적 최근 문법이기 때문에 예전 브라우저에서는 작동하지 않을 수도 있다.
+
+```javascript
+  function createElement(type, height, width) {
+    const element = document.createElement(type || 'div');
+    
+    element.style.height = String(height || 10) + 'px';
+    element.style.width = String(width || 10) + 'px';
+    
+    return element;
+  }
+  
+  const el = createElement('div', 0, 0);
+  el.style.height;        // '10px'
+  el.style.width;         // '10px'
+```
+숫자 <b>0</b>은 `false`에 해당될 수 있기 때문에 자연스럽게 10이라는 값이 출력되고 있다.<br>
+이럴 경우 가장 편리하게 사용할 수 있는 것이 바로 <b>null 병합 연산자</b>이다.<br>
+```javascript
+  function createElement(type, height, width) {
+    const element = document.createElement(type ?? 'div');
+    
+    element.style.height = String(height ?? 10) + 'px';
+    element.style.width = String(width ?? 10) + 'px';
+    
+    return element;
+  }
+```
+위와 같은 경우에는 `null`과 `undefined`만 `false`로 반환하여 의도대로 함수를 사용할 수 있다.<br>
+또한, 우선순위가 낮기 때문에 우선순위를 잘 확인할 수 있도록 <b>( 괄호 )</b>를 사용하는 것이 좋다.<br>
+### 📝 정리
+  1. null 병합 연산자는 굉장히 사용하기 편리하지만 실수를 유도하기 쉽기 때문에 신중하게 사용해야 한다.
+<br>
+
+## 12. 드모르간의 법칙
+```javascript
+  const isValidUser = true;     // 서버에서 받아온 값이라고 가정
+  const isValidToken = true;
+  
+  if (!(isValidUser && isValidToken)) {
+    console.log('로그인 실패!');
+  }
+```
+위와 같은 코드에서 if문에 새로운 기획이나 확인 요소를 넣게 되면 코드가 복잡해진다.<br>
+이럴 경우 다음과 같은 <b>드모르간의 법칙</b>을 사용하는 것이 좋다.<br>
+```javascript
+  if (!(A && B)) {
+    // 성공
+  }
+  
+  if (!A || !B) {
+    // 훨씬 깔끔해짐
+  }
+```
+### 😎 핵심
+#### true is not true && false is not false
