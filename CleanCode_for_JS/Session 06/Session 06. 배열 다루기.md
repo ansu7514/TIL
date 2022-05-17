@@ -112,3 +112,65 @@ Javascript 배열은 객체처럼 사용되기 때문에 자연스럽게 빈 공
     return priceList.map((price) => price + '원');
   }
 ```
+<br>
+
+## 7. 배열 메서드 체이닝 활용하기
+고차 함수로 변환해도 로직이 증가한다는 아쉬움을 가질 수 있다.<br>
+이를 해결하기 위해서, <b>메서드 체이닝</b>을 활용할 수 있다.<br>
+```javascript
+  const price = [ '2000', '1000', '3000', '5000', '4000' ];
+  
+  const suffixWon = (price) => price + '원';
+  const isOverOneThousand = (price) => Number(price) > 1000;
+  const ascendingList = (a, b) => a - b;
+  
+  // 고차 함수 형식
+  function getWonPrice(priceList) {
+    const isOverList = priceList.filter(isOverOneThousand);
+    const sortList = isOverList.sort(ascendingList);
+    
+    return sortList.map(suffixWon);
+  };
+  
+  // 메서드 체이닝 형식
+  function getWonPrice(priceList) {
+    return priceList
+      .filter(isOverOneThousand)      // filter로 원하는 조건에 맞는 배열 리스트 만들기
+      .sort(ascendingList)            // sort로 정렬
+      .map(suffixWon);                // 배열 요소를 다시 정리
+  };
+```
+기존 고차 함수 형식보다 메서드 체이닝 형식으로 훨씬 명확한 코드를 작성할 수 있다.<br>
+메서드 체이닝을 활용하게 된다면 자료구조의 `Queue` 형식처럼 사용할 수 있다.<br>
+<br>
+
+## 8. map VS forEach
+개발자 중에서 보통 `map`만 사용하거나 `forEach`만 사용하는 경우가 많다.<br>
+하지만 `map`과 `forEach`는 차이점을 가지고 있고, 구분해서 사용해주어야 한다.<br>
+```javascript
+  const prices = [ '1000', '2000', '3000' ];
+  
+  const newPricesForEach = prices.forEach((price) => return price + '원');
+  const newPricesMap = prices.map((price) => return price + '원');
+  
+  newPricesForEach;   // undefined
+  newPricesMap;       // [ '1000', '2000', '3000' ]
+```
+즉, `forEach`는 <b>매 요소마다 함수를 실행</b>만 시켜주는 역할을 하며, `map`은 <b>매 요소를 새로운 배열로 반환</b>시켜주는 역할을 한다.<br>
+이 둘을 분리하는 이유는 위와 같은 역할을 명시하기 위해서 사용하므로 잘 구분해서 사용하는 것이 중요하다.<br>
+<br>
+
+## 9. Continue & Break
+`Continue`와 `Break`는 자주 실수하는 부분 중 하나로, 특정 레이블이나 흐름을 제어하여 반복을 컨트롤하는 역할을 한다.<br>
+```javascript
+const orders = [ 'first', 'second', 'third' ];
+  orders.forEach(function(order) {
+    if (order === 'second') {
+      break;
+    };
+    
+    console.log(order);
+  });
+```
+위와 같이 사용하게 되면 끝까지 배열을 실행하지 못하기 때문에 에러가 발생하게 된다.<br>
+이러할 경우에는 `try-catch문`을 사용하는 것이 가장 효과적이며, 또는 `for문`을 사용하면 된다.<br>
