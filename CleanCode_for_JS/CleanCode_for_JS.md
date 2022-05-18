@@ -6,3 +6,4 @@
 - [Session 04. 경계 다루기](https://github.com/ansu7514/TIL/blob/main/CleanCode_for_JS/Session%2004/Session%2004.%20%EA%B2%BD%EA%B3%84%20%EB%8B%A4%EB%A3%A8%EA%B8%B0.md)
 - [Session 05. 분기 다루기](https://github.com/ansu7514/TIL/blob/main/CleanCode_for_JS/Session%2005/Session%2005.%20%EB%B6%84%EA%B8%B0%20%EB%8B%A4%EB%A3%A8%EA%B8%B0.md)
 - [Session 06. 배열 다루기](https://github.com/ansu7514/TIL/blob/main/CleanCode_for_JS/Session%2006/Session%2006.%20%EB%B0%B0%EC%97%B4%20%EB%8B%A4%EB%A3%A8%EA%B8%B0.md)
+- [Session 07. 객체 다루기](https://github.com/ansu7514/TIL/blob/main/CleanCode_for_JS/Session%2007/Session%2007.%20%EA%B0%9D%EC%B2%B4%20%EB%8B%A4%EB%A3%A8%EA%B8%B0.md)
