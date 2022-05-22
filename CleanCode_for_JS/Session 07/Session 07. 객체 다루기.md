@@ -126,3 +126,65 @@ Object Lookup Table로 변환할 경우 훨씬 깔끔하고 알아보기 쉽운 
 Object.freeze는 deep freezen이 되지 않는다는 단점을 가진다.<br>
 이러한 부분은 freezen을 중첩으로 사용하여 해결할 수 있다.<br>
 <br>
+
+## 6. Prototype 조작 지양하기
+### 📝  Prototype 조작 지양하기
+  1. 이미 자바스크립트는 많이 발전했기 때문이다.
+  2. 자바스크립트 빌트인 객체를 건들지 않기 위해서.
+<br>
+
+`Prototype`을 조작하게 된다면 어디서든 사용가능하기 때문에 상당히 강력하게 작용하게 된다.<br>
+자바스크립트에 내장된 객체들을 변형하기 보다는 가져와서 사용하는 것이 최근 추세이다.<br>
+‼ 따라서 직접 만들어서 모듈화하거나 배포하여 `npm`으로 사용하는 것이 좋다.<br>
+<br>
+
+## 7. hasOwnProperty
+```javascript
+  const person = {
+    name: 'hyeonseok'
+  };
+  
+  person.hasOwnProperty('name');    // true
+```
+`hasOwnProperty`란 property의 유무를 확인하는 것이다.<br>
+보통은 `for` 입문에서 많이 사용한다.<br>
+```javascript
+  const foo = {
+    hasOwnProperty: function() {
+      return 'hasOwnProperty';
+    },
+    bar: 'string',
+  };
+  
+  console.log(foo.hasOwnProperty('bar'));                            // hasOwnProperty
+  console.log(Object.prototype.hasOwnProperty.call(foo, 'bar'));     // true
+```
+위의 예시처럼 `hasOwnProperty`는 보호되지 않기 때문에, `Object`으로 접근해서 사용하는 것이 좋다.<br>
+<br>
+
+## 8. 직접 접근 지양하기
+```javascript
+  function model() {
+    isLogin: false,
+    isValidToekn: false,
+  };
+  
+  function setLogin(bool) {
+    model.isLogin = bool;
+  };
+  function setValidToekn(bool) {
+    model.isValidToekn = bool;
+  };
+  
+  function login() {
+    setLogin(true);
+    setValidToekn(true);
+  };
+  function logout() {
+    setLogin(false);
+    setValidToekn(false);
+  };
+```
+객체를 직접 접근하는 레이어를 따로 분리한 뒤 호출하는 것이 좋다.<br>
+이렇게 접근할 경우 안전하게 접근할 수 있다는 장점이 있다.<br>
+자바스크립트에서는 예측 가능하고 디버깅이 쉽고 유연한 코드를 작성하는 것이 클린코드가 될 수 있는 기반이다.<br>
