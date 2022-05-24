@@ -1,0 +1,3 @@
+# Chapter 01. 타입스크립트 알아보기
+
+- [Item 01. 타입스크립트와 자바스크립트의 관계 이해하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2001.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%20%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0/Item%2001.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%99%80%20%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%EA%B4%80%EA%B3%84%20%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0.md)
