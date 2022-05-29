@@ -1,0 +1,3 @@
+# Chapter 02. 타입스크립트의 타입 시스템
+
+- [Item 06. 편집기를 사용하여 타입 시스템 탐색하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2006.%20%ED%8E%B8%EC%A7%91%EA%B8%B0%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%ED%83%90%EC%83%89%ED%95%98%EA%B8%B0.md)
