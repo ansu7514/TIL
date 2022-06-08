@@ -8,14 +8,15 @@
   };
   
   // value
-  cont Cylinder = (radius: number, height: number) => ({ radius, height });
+  const Cylinder = (radius: number, height: number) => ({ radius, height });
 ```
 `interface Cylinder`에서 `Cylinder`는 타입으로 쓰인다.<br>
 `const Cylinder`는 이름은 같지만 값으로 쓰이며, 서로 아무런 관련이 없다.<br>
+<br>
 하지만, 이러한 상황에서 가끔 오류를 야기한다.<br>
 ```javascript
   function calculateVolume(shape: unknown) {
-    if (shpae instanceof Cylinder) {
+    if (shape instanceof Cylinder) {
       shape.radius
         //  ~~~~~~ '{}' 형식에 'radius' 속성이 없습니다.
     }
