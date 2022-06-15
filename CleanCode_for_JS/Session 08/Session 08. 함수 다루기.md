@@ -46,3 +46,35 @@ example(argument);
 #### ✅ Argument (Actual Parameter)
 - 실제로 사용되는, 인자 혹은 인수를 의미
 <br>
+
+## 3. 복잡한 인자 관리하기
+```javascript
+  function toggleDisplay(isToggle) {
+    // ...some code
+  }
+
+  function sum(sum1, sum2) {
+    // ...some code
+  }
+
+  function getRandomNumber(min, max) {
+    // ...some code
+  }
+  
+  function timer(start, stop, end) {
+    // ...some code
+  }
+
+  function genSquare(top, right, bottom, left) {
+    // ...some code
+  }
+```
+함수의 매개변수를 다룰 때, 무조건 많은 것이 나쁜 것은 아니다.<br>
+**맥락과 흐름**을 파악할 수 있는 것이 중요하다.<br>
+```javascript
+  function createCar({ name, brand, color, type }) {
+    return { name, brand, color, type };
+  }
+```
+복잡한 인자를 관리하는 것에는 자바스크립트의 **객체**가 편리하다.<br>
+**객체분해할당**을 사용해서 손쉽게 객체를 사용하고 순서를 지키지 않아도 되었다.<br>
