@@ -7,3 +7,4 @@
 - [Item 10. 객체 래퍼 타입 피하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2010.%20%EA%B0%9D%EC%B2%B4%20%EB%9E%98%ED%8D%BC%20%ED%83%80%EC%9E%85%20%ED%94%BC%ED%95%98%EA%B8%B0.md)
 - [Item 11. 잉여 속성 체크의 한계 인지하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2011.%20%EC%9E%89%EC%97%AC%20%EC%86%8D%EC%84%B1%20%EC%B2%B4%ED%81%AC%EC%9D%98%20%ED%95%9C%EA%B3%84%20%EC%9D%B8%EC%A7%80%ED%95%98%EA%B8%B0.md)
 - [Item 12. 함수 표현식에 타입 적용하기](Item%2012.%20함수%20표현식에%20타입%20적용하기.md)
+- [Item 13. 타입과 인터페이스의 차이점 알기](Item%2013.%20타입과%20인터페이스의%20차이점%20알기.md)
