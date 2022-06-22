@@ -11,3 +11,6 @@
 
 ## <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png' width='23'> React
 - [Flux 패턴](https://github.com/ansu7514/TIL/blob/main/React/Flux_Pattern.md)
+
+## <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png' width='23'> TypeScript
+- [Type과 Interface의 공통점과 차이점](TypeScript/Type과%20Interface의%20공통점과%20차이점.md)
