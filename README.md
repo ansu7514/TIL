@@ -16,3 +16,4 @@
 ## <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png' width='23'> TypeScript
 - [TypeScript를 사용하는 이유](TypeScript/TypeScript를%20사용하는%20이유.md)
 - [Type과 Interface의 공통점과 차이점](TypeScript/Type과%20Interface의%20공통점과%20차이점.md)
+- [TypeScript 함수 오버로딩](TypeScript/TypeSciprt%20함수%20오버로딩.md)
