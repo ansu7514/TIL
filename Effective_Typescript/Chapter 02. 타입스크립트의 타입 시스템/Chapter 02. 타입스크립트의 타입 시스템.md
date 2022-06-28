@@ -1,10 +1,10 @@
 # Chapter 02. 타입스크립트의 타입 시스템
 
-- [Item 06. 편집기를 사용하여 타입 시스템 탐색하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2006.%20%ED%8E%B8%EC%A7%91%EA%B8%B0%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%ED%83%90%EC%83%89%ED%95%98%EA%B8%B0.md)
-- [Item 07. 타입이 값들의 집합이라고 생각하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2007.%20%ED%83%80%EC%9E%85%EC%9D%B4%20%EA%B0%92%EB%93%A4%EC%9D%98%20%EC%A7%91%ED%95%A9%EC%9D%B4%EB%9D%BC%EA%B3%A0%20%EC%83%9D%EA%B0%81%ED%95%98%EA%B8%B0.md)
-- [Item 08. 타입 공간과 값 공간의 심벌 구분하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2008.%20%ED%83%80%EC%9E%85%20%EA%B3%B5%EA%B0%84%EA%B3%BC%20%EA%B0%92%20%EA%B3%B5%EA%B0%84%EC%9D%98%20%EC%8B%AC%EB%B2%8C%20%EA%B5%AC%EB%B6%84%ED%95%98%EA%B8%B0.md)
-- [Item 09. 타입 단언보다는 타입 선언 사용하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2009.%20%ED%83%80%EC%9E%85%20%EB%8B%A8%EC%96%B8%EB%B3%B4%EB%8B%A4%EB%8A%94%20%ED%83%80%EC%9E%85%20%EC%84%A0%EC%96%B8%20%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0.md)
-- [Item 10. 객체 래퍼 타입 피하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2010.%20%EA%B0%9D%EC%B2%B4%20%EB%9E%98%ED%8D%BC%20%ED%83%80%EC%9E%85%20%ED%94%BC%ED%95%98%EA%B8%B0.md)
-- [Item 11. 잉여 속성 체크의 한계 인지하기](https://github.com/ansu7514/TIL/blob/main/Effective_Typescript/Chapter%2002.%20%ED%83%80%EC%9E%85%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98%20%ED%83%80%EC%9E%85%20%EC%8B%9C%EC%8A%A4%ED%85%9C/Item%2011.%20%EC%9E%89%EC%97%AC%20%EC%86%8D%EC%84%B1%20%EC%B2%B4%ED%81%AC%EC%9D%98%20%ED%95%9C%EA%B3%84%20%EC%9D%B8%EC%A7%80%ED%95%98%EA%B8%B0.md)
+- [Item 06. 편집기를 사용하여 타입 시스템 탐색하기](Item%2006.%20편집기를%20사용하여%20타입%20시스템%20탐색하기.md)
+- [Item 07. 타입이 값들의 집합이라고 생각하기](Item%2007.%20타입이%20값들의%20집합이라고%20생각하기.md)
+- [Item 08. 타입 공간과 값 공간의 심벌 구분하기](Item%2008.%20타입%20공간과%20값%20공간의%20심벌%20구분하기.md)
+- [Item 09. 타입 단언보다는 타입 선언 사용하기](Item%2009.%20타입%20단언보다는%20타입%20선언%20사용하기.md)
+- [Item 10. 객체 래퍼 타입 피하기](Item%2010.%20객체%20래퍼%20타입%20피하기.md)
+- [Item 11. 잉여 속성 체크의 한계 인지하기](Item%2011.%20잉여%20속성%20체크의%20한계%20인지하기.md)
 - [Item 12. 함수 표현식에 타입 적용하기](Item%2012.%20함수%20표현식에%20타입%20적용하기.md)
 - [Item 13. 타입과 인터페이스의 차이점 알기](Item%2013.%20타입과%20인터페이스의%20차이점%20알기.md)
