@@ -1,0 +1,14 @@
+{
+  "name": "learn-express-middleware",
+  "version": "0.0.1",
+  "description": "익스프레스 미들웨어 사용하기",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "SuhyunAn",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
