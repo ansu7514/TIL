@@ -1,0 +1,17 @@
+{
+  "name": "express-middelware-test",
+  "version": "0.0.1",
+  "description": "미들웨어 특성 이해하기",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "SuhyunAn",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
