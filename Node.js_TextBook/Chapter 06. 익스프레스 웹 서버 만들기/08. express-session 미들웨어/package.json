@@ -1,0 +1,18 @@
+{
+  "name": "express-session-middleware",
+  "version": "0.0.1",
+  "description": "express_session_미들웨어",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon start"
+  },
+  "author": "SuhyunAn",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-session": "^1.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
