@@ -1,0 +1,17 @@
+{
+  "name": "express-router",
+  "version": "0.0.1",
+  "description": "라우터 분리하기",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon start"
+  },
+  "author": "SuhyunAn",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
