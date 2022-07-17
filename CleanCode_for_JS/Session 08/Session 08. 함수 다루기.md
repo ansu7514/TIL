@@ -78,3 +78,37 @@ example(argument);
 ```
 복잡한 인자를 관리하는 것에는 자바스크립트의 **객체**가 편리하다.<br>
 **객체분해할당**을 사용해서 손쉽게 객체를 사용하고 순서를 지키지 않아도 되었다.<br>
+  
+## 4. Default Value
+함수를 만들때도 기본값을 만들면 효율적이다.  
+```javascript
+  function createCarousel(options) {
+    options = options || {};
+    var margin = options.margin || 0;
+    var center = options.center || false;
+    var navElement = options.navElement || 'div';
+
+    return {
+      margin,
+      center,
+      navElement,
+    };
+  }
+
+  createCarousel();       // { margin: 0, center: false, navElement: 'div' }
+```
+객체가 들어오지 않을 경우, `createCarousel`에서는 에러가 발생하게 된다.  
+따라서, `options = options || {}`로 에러를 제거 한다.    
+```javascript
+  function createCarousel({ margin: 0, center: false, navElement: 'div' } = {} ) {
+    return {
+      margin,
+      center,
+      navElement,
+    };
+  }
+
+  createCarousel();       // { margin: 0, center: false, navElement: 'div' }
+```
+**객체구조분해**를 활용하여 작성할 수도 있다.  
+> `{ margin: 0, center: false, navElement: 'div' } = {}`에서 `= {}`가 없으면 에러가 발생한다.
